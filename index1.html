@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="صفحة تسجيل الدخول">
+    <title>تسجيل الدخول</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>تسجيل الدخول</h2>
+        <form id="loginForm">
+            <label for="username">اسم المستخدم:</label>
+            <input type="text" id="username" required>
+            
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" required>
+
+            <!-- Checkboxes -->
+            <h3>اختر اهتماماتك:</h3>
+            <label><input type="checkbox" name="interest" value="technology"> التكنولوجيا</label><br>
+            <label><input type="checkbox" name="interest" value="science"> العلوم</label><br>
+            <label><input type="checkbox" name="interest" value="sports"> الرياضة</label><br>
+
+            <!-- Radio Buttons -->
+            <h3>حدد جنسك:</h3>
+            <label><input type="radio" name="gender" value="male" required> ذكر</label><br>
+            <label><input type="radio" name="gender" value="female" required> أنثى</label><br>
+
+            <!-- قائمة منسدلة (Dropdown List) -->
+            <h3>اختر دولتك:</h3>
+            <select id="country" required>
+                <option value="">-- اختر الدولة --</option>
+                <option value="saudi">السعودية</option>
+                <option value="egypt">مصر</option>
+                <option value="uae">الإمارات</option>
+                <option value="jordan">الأردن</option>
+            </select>
+
+            <br><br>
+            <button type="submit">دخول</button>
+        </form>
+        <p id="error-msg" class="error-msg"></p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').onsubmit = function(event) {
+            event.preventDefault();
+            
+            // بيانات تسجيل الدخول الصحيحة
+            const correctUsername = "sara";
+            const correctPassword = "1234";
+            
+            // جلب القيم من الحقول
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            // التحقق من البيانات
+            if (username === correctUsername && password === correctPassword) {
+                window.location.href = "index (2).html";  // الانتقال للصفحة الرئيسية بعد التحقق
+            } else {
+                document.getElementById('error-msg').innerText = "اسم المستخدم أو كلمة المرور غير صحيحة!";
+            }
+        }
+    </script>
+
+</body>
+</html>
